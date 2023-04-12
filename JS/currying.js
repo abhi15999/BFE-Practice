@@ -3,12 +3,12 @@
 use 'strict';
 
 function currying (fn = function(){}) {
-    return function(...args) {
+    return function curriedFunction (...args) {
         if (args.length >= fn.length) {
             return fn.apply(this, args);
         } else {
             return function (...args1) {
-                return currying.apply(this, args.concat(args1))
+                return curriedFunction.apply(this, args.concat(args1))
             }
         }
     }
